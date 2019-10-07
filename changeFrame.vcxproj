@@ -154,7 +154,8 @@
     <ClCompile Include="changeFrame.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="srcfile\in.txt" />
+    <Text Include="1.txt" />
+    <Text Include="testfile\in.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
