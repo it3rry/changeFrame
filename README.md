@@ -4,7 +4,7 @@
 
 输入的帧的例子
 
-![](https://github.com/terrycch/changeFrame/Assets/Image/pic1.png)
+![https://github.com/terrycch/changeFrame/blob/master/Assets/Image/pic1.png]()
 
 在转换帧的格式时候，传出的帧为标准的帧的格式
 
