@@ -2,7 +2,7 @@
 
 实现CAN总线协议下的帧转换。
 
-输入的帧的例子
+输入的帧的格式为：
 
 ![](https://github.com/terrycch/changeFrame/blob/master/Assets/Image/pic1.png)
 
@@ -15,3 +15,7 @@
 3，连续帧
 
 4，最后帧
+
+转换完成的格式为：
+
+【图片】
