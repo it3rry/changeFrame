@@ -4,7 +4,7 @@
 
 输入的帧的例子
 
-![](D:\git\changeFrame\File\批注 2019-10-01 192506.png)
+![](https://github.com/terrycch/changeFrame/tree/master/File/批注 2019-10-01 192506.png)
 
 在转换帧的格式时候，传出的帧为标准的帧的格式
 
