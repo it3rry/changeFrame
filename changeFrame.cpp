@@ -59,7 +59,6 @@ int main()
 	l1.remove("Info");
 	l1.remove("Req:");
 	l1.remove("Ans:");
-
 	
 	ofstream fout;
 	fout.open("out.txt");
@@ -70,7 +69,6 @@ int main()
 		_str++;
 	}
 	
-
 	//单帧
 	//fout << Req << "  "<<  Head << add11 << add12;
 	for (int i = 0; i < _num; i++) {
@@ -89,10 +87,46 @@ int main()
 	int _start = 21;
 	fout << Ans << "MN " << Head << add21 << add22
 		<< "总数" << *_str++;
-	//连续帧
-
+	//控制帧
+	fout << Req << "1N" << Head << add11 << add12
+		<< "30 ";
+	int _Control_Num = 6;
+	for (int i = 0; i < _Control_Num; i++) {
+		fout << "00 ";
+	}
+	fout << endl;
 	//最后一行的帧命令
+	//检测还有多少没录入命令
+	int _rest_comm_num = 0;
+	while (_str == l1.end()) {
+		_rest_comm_num++;
+		_str++;
+	}
+	int _Consecutive_num_rest = 0;
+	while (_str != l1.end()) {
+		if (_rest_comm_num < 7) {
+			fout << Ans << "1N" << Head << add11 << add12;
+			for (int i = 0; i < _Consecutive_num_rest; i++) {
+				fout << *_str;
+				_str++;
+			}
+			fout << endl;
+			_rest_comm_num = _rest_comm_num - 7;
+		}
+		else {
+			fout << Ans << "1N" << Head << add11 << add12;
+			int _last_comm_num = 7 - _rest_comm_num;
+			for (int i = 0; i < _rest_comm_num; i++) {
+				fout << *_str;
+				_str++;
+			}
+			for (int i = 0; i < _last_comm_num; i++) {
+				fout << "00 ";
+			}
+			fout << endl;
 
+		}
+	}
 	
 	cout << "执行完毕\n";
 }
