@@ -23,7 +23,7 @@
     <Text Include="testfile\in.txt">
       <Filter>资源文件</Filter>
     </Text>
-    <Text Include="1.txt">
+    <Text Include="_out.txt">
       <Filter>资源文件</Filter>
     </Text>
   </ItemGroup>

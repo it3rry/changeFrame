@@ -5,6 +5,7 @@
 #include <list>
 #include <string>
 #include <fstream>
+
 using namespace std;
 
 int main()
@@ -16,23 +17,28 @@ int main()
 	const string Req = "Req: ";
 	const string Ans = "Ans: ";
 	//统计第一行有几个命令
-	ifstream ftest;
-	ftest.open("in.txt");
-	int _num = 0;
-	while (ftest.eof()) {
-		if (ftest) {
-			if (str != "Ans:") {
-				_num++;
-			}
-		}
-	}
-	ftest.clear();
-	ftest.close();
+	//ifstream ftest;
+	//ftest.open("D:\\git\\changeFrame\\testfile\\in.txt");
+	//int _num = 0;
+
+	//const int  MAX_DANZHEN_NUM = 12;
+
+
+	//for (int i = 0; i < MAX_DANZHEN_NUM; i++) {
+	//	ftest >> str;
+	//	if (str != "Ans") {
+	//		_num++;
+	//	}
+	//}
+
+
+	//ftest.clear();
+	//ftest.close();
 
 	ifstream fin;
-	fin.open("in.txt");
+	fin.open("D:\\git\\changeFrame\\testfile\\in.txt");
 	
-	while (fin.eof()) {
+	while (!fin.eof()) {
 		if (fin) {
 			fin >> str;
 			l1.push_back(str);
@@ -64,70 +70,130 @@ int main()
 	fout.open("out.txt");
 
 	list<string>::iterator _str = l1.begin();
-	int _sing_frame_num = 4;
-	for (int i = 0; i < _sing_frame_num; i++) {
-		_str++;
-	}
-	
+	//int _sing_frame_num = 4;
+	//for (int i = 0; i < _sing_frame_num; i++) {
+	//	_str++;
+	//}
+	//
+
 	//单帧
-	//fout << Req << "  "<<  Head << add11 << add12;
-	for (int i = 0; i < _num; i++) {
-		fout << *_str << endl;;
+	fout << Req << "   "<<  Head << add11 <<" "<< add12<< " ";
+	_str++;
+	_str++;
+	for (int i = 0; i < 3; i++) {
+		fout << *_str++ << " ";
+	}
+	//fout << endl;
+
+	for (int i = 0; i < 4; i++) {
+		fout << "00" << " ";
 	}
 	
-	fout << Head << "   " << add11 << add12;
-	while (*_str == "Info") {
+	/*while (*_str == "Info") {
 		fout << *_str;
 		_str++;
-	}
+	}*/
 	//单帧补齐
 	fout << endl;
-	
 	//第一帧
 	int _start = 21;
-	fout << Ans << "MN " << Head << add21 << add22
-		<< "总数" << *_str++;
+	fout << Ans << "MN " << Head << "07" << " " << "E8" << " ";
+	for (int i = 0; i < 7; i++) {
+		fout << *_str++ << " ";
+	}
+	fout << endl;
+	//address待修改
+	//最后一行的帧命令
+	//检测还有多少没录入命令
 	//控制帧
-	fout << Req << "1N" << Head << add11 << add12
-		<< "30 ";
+
+	fout << Req << "1N " << Head << add11 << " " << add12 << " "
+	<< "30 ";
 	int _Control_Num = 6;
 	for (int i = 0; i < _Control_Num; i++) {
 		fout << "00 ";
 	}
 	fout << endl;
-	//最后一行的帧命令
-	//检测还有多少没录入命令
-	int _rest_comm_num = 0;
-	while (_str == l1.end()) {
-		_rest_comm_num++;
-		_str++;
-	}
+
+	list<string>::iterator a = l1.end();
+	a--;
+	int _rest_comm_num = 20;
+	//while (*_str != *a) {
+	//	_rest_comm_num++;
+	//	//_str++;
+	//}
+
 	int _Consecutive_num_rest = 0;
-	while (_str != l1.end()) {
+
+	while (_str != a) {
 		if (_rest_comm_num < 7) {
 			fout << Ans << "1N" << Head << add11 << add12;
 			for (int i = 0; i < _Consecutive_num_rest; i++) {
-				fout << *_str;
-				_str++;
+				fout << *_str++;
+			/*	_str++;*/
 			}
 			fout << endl;
 			_rest_comm_num = _rest_comm_num - 7;
 		}
 		else {
-			fout << Ans << "1N" << Head << add11 << add12;
+			fout << Ans << "1N " << Head << add11 << add12;
 			int _last_comm_num = 7 - _rest_comm_num;
 			for (int i = 0; i < _rest_comm_num; i++) {
-				fout << *_str;
-				_str++;
+				fout << *_str++;
+			/*	_str++;*/
 			}
 			for (int i = 0; i < _last_comm_num; i++) {
 				fout << "00 ";
 			}
 			fout << endl;
-
 		}
 	}
-	
-	cout << "执行完毕\n";
+	fout.close();
+	cout << "执行完毕" << endl;
 }
 
+
+
+
+////第一帧
+//int _start = 21;
+//fout << Ans << "MN " << Head << add21 << add22
+//<< "总数" << *_str++;
+////控制帧
+//fout << Req << "1N" << Head << add11 << add12
+//<< "30 ";
+//int _Control_Num = 6;
+//for (int i = 0; i < _Control_Num; i++) {
+//	fout << "00 ";
+//}
+//fout << endl;
+
+//int _rest_comm_num = 0;
+//while (_str == l1.end()) {
+//	_rest_comm_num++;
+//	_str++;
+//}
+//int _Consecutive_num_rest = 0;
+//while (_str != l1.end()) {
+//	if (_rest_comm_num < 7) {
+//		fout << Ans << "1N" << Head << add11 << add12;
+//		for (int i = 0; i < _Consecutive_num_rest; i++) {
+//			fout << *_str;
+//			_str++;
+//		}
+//		fout << endl;
+//		_rest_comm_num = _rest_comm_num - 7;
+//	}
+//	else {
+//		fout << Ans << "1N" << Head << add11 << add12;
+//		int _last_comm_num = 7 - _rest_comm_num;
+//		for (int i = 0; i < _rest_comm_num; i++) {
+//			fout << *_str;
+//			_str++;
+//		}
+//		for (int i = 0; i < _last_comm_num; i++) {
+//			fout << "00 ";
+//		}
+//		fout << endl;
+//
+//	}
