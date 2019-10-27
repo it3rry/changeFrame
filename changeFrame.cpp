@@ -89,10 +89,6 @@ int main()
 		fout << "00" << " ";
 	}
 	
-	/*while (*_str == "Info") {
-		fout << *_str;
-		_str++;
-	}*/
 	//单帧补齐
 	fout << endl;
 	//第一帧
@@ -118,10 +114,6 @@ int main()
 	list<string>::iterator a = l1.end();
 	a--;
 	int _rest_comm_num = 20;
-	//while (*_str != *a) {
-	//	_rest_comm_num++;
-	//	//_str++;
-	//}
 
 	int _Consecutive_num_rest = 0;
 
@@ -152,48 +144,3 @@ int main()
 	cout << "执行完毕" << endl;
 }
 
-
-
-
-////第一帧
-//int _start = 21;
-//fout << Ans << "MN " << Head << add21 << add22
-//<< "总数" << *_str++;
-////控制帧
-//fout << Req << "1N" << Head << add11 << add12
-//<< "30 ";
-//int _Control_Num = 6;
-//for (int i = 0; i < _Control_Num; i++) {
-//	fout << "00 ";
-//}
-//fout << endl;
-
-//int _rest_comm_num = 0;
-//while (_str == l1.end()) {
-//	_rest_comm_num++;
-//	_str++;
-//}
-//int _Consecutive_num_rest = 0;
-//while (_str != l1.end()) {
-//	if (_rest_comm_num < 7) {
-//		fout << Ans << "1N" << Head << add11 << add12;
-//		for (int i = 0; i < _Consecutive_num_rest; i++) {
-//			fout << *_str;
-//			_str++;
-//		}
-//		fout << endl;
-//		_rest_comm_num = _rest_comm_num - 7;
-//	}
-//	else {
-//		fout << Ans << "1N" << Head << add11 << add12;
-//		int _last_comm_num = 7 - _rest_comm_num;
-//		for (int i = 0; i < _rest_comm_num; i++) {
-//			fout << *_str;
-//			_str++;
-//		}
-//		for (int i = 0; i < _last_comm_num; i++) {
-//			fout << "00 ";
-//		}
-//		fout << endl;
-//
-//	}
