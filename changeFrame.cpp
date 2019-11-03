@@ -16,24 +16,6 @@ int main()
 	const string Head = "08 ";
 	const string Req = "Req: ";
 	const string Ans = "Ans: ";
-	//统计第一行有几个命令
-	//ifstream ftest;
-	//ftest.open("D:\\git\\changeFrame\\testfile\\in.txt");
-	//int _num = 0;
-
-	//const int  MAX_DANZHEN_NUM = 12;
-
-
-	//for (int i = 0; i < MAX_DANZHEN_NUM; i++) {
-	//	ftest >> str;
-	//	if (str != "Ans") {
-	//		_num++;
-	//	}
-	//}
-
-
-	//ftest.clear();
-	//ftest.close();
 
 	ifstream fin;
 	fin.open("D:\\git\\changeFrame\\testfile\\in.txt");
@@ -70,11 +52,6 @@ int main()
 	fout.open("out.txt");
 
 	list<string>::iterator _str = l1.begin();
-	//int _sing_frame_num = 4;
-	//for (int i = 0; i < _sing_frame_num; i++) {
-	//	_str++;
-	//}
-	//
 
 	//单帧
 	fout << Req << "   "<<  Head << add11 <<" "<< add12<< " ";
@@ -83,7 +60,6 @@ int main()
 	for (int i = 0; i < 3; i++) {
 		fout << *_str++ << " ";
 	}
-	//fout << endl;
 
 	for (int i = 0; i < 4; i++) {
 		fout << "00" << " ";
@@ -98,9 +74,7 @@ int main()
 		fout << *_str++ << " ";
 	}
 	fout << endl;
-	//address待修改
-	//最后一行的帧命令
-	//检测还有多少没录入命令
+
 	//控制帧
 
 	fout << Req << "1N " << Head << add11 << " " << add12 << " "
@@ -110,37 +84,30 @@ int main()
 		fout << "00 ";
 	}
 	fout << endl;
-
 	list<string>::iterator a = l1.end();
 	a--;
-	int _rest_comm_num = 20;
-
-	int _Consecutive_num_rest = 0;
+	int _rest_comm_num = 9;
 
 	while (_str != a) {
 		if (_rest_comm_num < 7) {
-			fout << Ans << "1N" << Head << add11 << add12;
+			fout << Ans <<"   "<< Head << add11 << " "<< add12<<" ";
+			for (int i = 0; i < _rest_comm_num; i++) {
+				fout << *_str++<< " ";
+			}
+			int _Consecutive_num_rest = 7- _rest_comm_num;
 			for (int i = 0; i < _Consecutive_num_rest; i++) {
-				fout << *_str++;
-			/*	_str++;*/
+				fout << "00 ";
+			}
+		}
+		else {
+			fout << Ans << "1N " << Head << add11<< " " << add12<< " ";
+			for (int i = 0; i < 7; i++) {
+				fout << *_str++ << " ";
 			}
 			fout << endl;
 			_rest_comm_num = _rest_comm_num - 7;
 		}
-		else {
-			fout << Ans << "1N " << Head << add11 << add12;
-			int _last_comm_num = 7 - _rest_comm_num;
-			for (int i = 0; i < _rest_comm_num; i++) {
-				fout << *_str++;
-			/*	_str++;*/
-			}
-			for (int i = 0; i < _last_comm_num; i++) {
-				fout << "00 ";
-			}
-			fout << endl;
-		}
 	}
 	fout.close();
-	cout << "执行完毕" << endl;
 }
 
