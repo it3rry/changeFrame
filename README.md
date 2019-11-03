@@ -4,7 +4,7 @@
 
 输入的帧的格式为：
 
-![](https://github.com/terrycch/changeFrame/raw/master/Assets/Image/pic1.png)
+![pic1.png](https://github.com/terrycch/changeFrame/raw/master/Assets/Image/pic1.png)
 
 在转换帧的格式时候，传出的帧为标准的帧的格式
 
@@ -18,12 +18,16 @@
 
 转换完成的格式为：
 
-![](https://github.com/terrycch/changeFrame/raw/master/Assets/Image/pic2.png)
+![pic2.png](https://github.com/terrycch/changeFrame/raw/master/Assets/Image/pic2.png)
 
-开发环境：vs2019
+开发环境： vs2019
 
 
 
 注意事项：
 
-in.txt文件路径可能需要更改
+in.txt文件的默认路径是 D:\\git\\changeFrame\\testfile\\in.txt
+
+out.txt文件的默认路径是 D:\\git\\changeFrame\\testfile\\out.txt
+
+如需更改,需要自己手动在源代码中修改.
