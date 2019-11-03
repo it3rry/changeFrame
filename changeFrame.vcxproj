@@ -154,6 +154,7 @@
     <ClCompile Include="changeFrame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="testfile\out.txt" />
     <Text Include="_out.txt" />
     <Text Include="testfile\in.txt" />
   </ItemGroup>

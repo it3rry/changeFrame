@@ -45,7 +45,7 @@ int main()
 
 	l1.remove("Info");
 	ofstream fout;
-	fout.open("out.txt");
+	fout.open("D:\\git\\changeFrame\\testfile\\out.txt");
 	list<string>::iterator _str = l1.begin();
 	//单帧
 	fout << Req << "   "<<  Head << add11 <<" "<< add12<< " ";
@@ -90,24 +90,29 @@ int main()
 	}
 	
 	//最后帧
+	int _rest_frame_num = 6;
 	while (_str != l1.end()) {
-		if (_rest_comm_num < 7) {
+		if (_rest_comm_num < _rest_frame_num) {
 			fout << Ans <<"   "<< Head << add11 << " "<< add12<<" ";
+			fout << _start << " ";
+			_start++;
 			for (int i = 0; i < _rest_comm_num; i++) {
 				fout << *_str++<< " ";
 			}
-			int _Consecutive_num_rest = 7- _rest_comm_num;
+			int _Consecutive_num_rest = _rest_frame_num - _rest_comm_num;
 			for (int i = 0; i < _Consecutive_num_rest; i++) {
 				fout << "00 ";
 			}
 		}
 		else {
 			fout << Ans << "1N " << Head << add11<< " " << add12<< " ";
-			for (int i = 0; i < 7; i++) {
+			fout << _start<< " ";
+			_start++;
+			for (int i = 0; i < _rest_frame_num; i++) {
 				fout << *_str++ << " ";
 			}
 			fout << endl;
-			_rest_comm_num = _rest_comm_num - 7;
+			_rest_comm_num = _rest_comm_num -  _rest_frame_num;
 		}
 	}
 	fout.close();

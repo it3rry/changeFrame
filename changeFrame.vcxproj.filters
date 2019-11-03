@@ -26,5 +26,8 @@
     <Text Include="_out.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="testfile\out.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>
