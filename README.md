@@ -4,7 +4,7 @@
 
 输入的帧的格式为：
 
-![](https://github.com/terrycch/changeFrame/blob/master/Assets/Image/pic1.png)
+![](https://github.com/terrycch/changeFrame/raw/master/Assets/Image/pic1.png)
 
 在转换帧的格式时候，传出的帧为标准的帧的格式
 
@@ -18,7 +18,7 @@
 
 转换完成的格式为：
 
-![](https://github.com/terrycch/changeFrame/blob/master/Assets/Image/pic2.png)
+![](https://github.com/terrycch/changeFrame/raw/master/Assets/Image/pic2.png)
 
 开发环境：vs2019
 
