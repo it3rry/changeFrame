@@ -46,14 +46,14 @@ int main()
 	l1.remove("Info");
 	ofstream fout;
 	fout.open("D:\\git\\changeFrame\\testfile\\out.txt");
-	list<string>::iterator _str = l1.begin();
+	list<string>::iterator _itr = l1.begin();
 	//单帧
 	fout << Req << "   "<<  Head << add11 <<" "<< add12<< " ";
-	_str++;
-	_str++;
+	_itr++;
+	_itr++;
 	int _supplementary_num = 0;
-	while (*_str != "Ans:") {
-		fout << *_str++ << " ";
+	while (*_itr != "Ans:") {
+		fout << *_itr++ << " ";
 		_supplementary_num++;
 	}
 
@@ -68,9 +68,9 @@ int main()
 	int _start = 21;
 	//_str++; _str++;
 	fout << Ans << "MN " << Head << add21 << " " << add22 << " ";
-	++_str; ++_str; ++_str;
+	++_itr; ++_itr; ++_itr;
 	for (int i = 0; i < 7; i++) {
-		fout << *_str++ << " ";
+		fout << *_itr++ << " ";
 	}
 	fout << endl;
 	//控制帧
@@ -83,7 +83,7 @@ int main()
 	fout << endl;
 	int _rest_comm_num =0;
 	//计算还有多少数据没有写入
-	list<string>::iterator temp_str = _str;
+	list<string>::iterator temp_str = _itr;
 	while (temp_str != l1.end()) {
 		_rest_comm_num++;
 		temp_str++;
@@ -91,13 +91,13 @@ int main()
 	
 	//最后帧
 	int _rest_frame_num = 6;
-	while (_str != l1.end()) {
+	while (_itr != l1.end()) {
 		if (_rest_comm_num < _rest_frame_num) {
 			fout << Ans <<"   "<< Head << add11 << " "<< add12<<" ";
 			fout << _start << " ";
 			_start++;
 			for (int i = 0; i < _rest_comm_num; i++) {
-				fout << *_str++<< " ";
+				fout << *_itr++<< " ";
 			}
 			int _Consecutive_num_rest = _rest_frame_num - _rest_comm_num;
 			for (int i = 0; i < _Consecutive_num_rest; i++) {
@@ -109,7 +109,7 @@ int main()
 			fout << _start<< " ";
 			_start++;
 			for (int i = 0; i < _rest_frame_num; i++) {
-				fout << *_str++ << " ";
+				fout << *_itr++ << " ";
 			}
 			fout << endl;
 			_rest_comm_num = _rest_comm_num -  _rest_frame_num;
